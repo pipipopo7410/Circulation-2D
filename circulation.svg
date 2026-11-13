@@ -1,0 +1,81 @@
+<svg id="circulation-map" viewBox="0 0 1000 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="人體血液循環示意圖，包含四個心臟腔室、肺循環與體循環">
+  <defs>
+    <linearGradient id="tissue-change" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#ec5b68"/><stop offset=".55" stop-color="#956aca"/><stop offset="1" stop-color="#4c8bcb"/></linearGradient>
+    <linearGradient id="lung-change" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4c8bcb"/><stop offset=".5" stop-color="#956aca"/><stop offset="1" stop-color="#ec5b68"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#475569" flood-opacity=".14"/></filter>
+    <filter id="softglow"><feGaussianBlur stdDeviation="8"/></filter>
+    <pattern id="dots" x="0" y="0" width="17" height="17" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.5" fill="#c8d5de" opacity=".52"/></pattern>
+  </defs>
+  <rect width="1000" height="760" rx="24" fill="#fbfdfd" />
+  <rect width="1000" height="760" rx="24" fill="url(#dots)"/>
+  <g id="anatomical-context" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 475 125 C 445 85 360 84 308 128 C 268 160 241 226 253 297 C 268 327 345 322 408 291 C 447 272 469 235 475 125Z" fill="#ffe7e7" stroke="#f7c6c9" stroke-width="4" opacity=".85"/>
+    <path d="M 525 125 C 555 85 640 84 692 128 C 732 160 759 226 747 297 C 732 327 655 322 592 291 C 553 272 531 235 525 125Z" fill="#ffe7e7" stroke="#f7c6c9" stroke-width="4" opacity=".85"/>
+    <path d="M 500 89 L 500 141 M 500 141 Q 465 162 439 190 M 500 141 Q 535 162 561 190" stroke="#e4b7be" stroke-width="14" opacity=".75"/>
+    <path d="M 385 514 Q 320 530 306 584 Q 294 641 340 683 Q 385 722 485 714 M 615 514 Q 680 530 694 584 Q 706 641 660 683 Q 615 722 515 714" stroke="#dbe8e9" stroke-width="4" stroke-dasharray="7 11" opacity=".8"/>
+    <rect x="364" y="620" width="270" height="75" rx="36" fill="#eaf4ed" stroke="#cbe2d4" stroke-width="3"/>
+    <path d="M 407 657 C 440 630 468 675 500 650 S 566 634 599 657" stroke="#bedcc9" stroke-width="12"/>
+  </g>
+  <g id="vessel-base" fill="none" stroke="#d8e2e8" stroke-width="23" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 570 439 C 645 413 674 385 700 305"/>
+    <path d="M 700 305 C 806 353 824 455 771 550"/>
+    <path d="M 771 550 C 734 606 673 632 603 657"/>
+    <path d="M 586 657 C 480 695 380 647 343 553"/>
+    <path d="M 343 553 C 265 474 273 417 279 358"/>
+    <path d="M 279 358 C 342 313 387 300 430 332"/>
+    <path d="M 444 364 C 440 393 442 410 444 428"/>
+    <path d="M 444 437 C 362 409 315 330 329 264"/>
+    <path d="M 329 264 C 309 228 340 189 382 190 M 329 264 C 320 212 375 158 426 172"/>
+    <path d="M 398 181 C 450 148 486 164 500 181 C 533 164 550 159 602 181"/>
+    <path d="M 602 181 C 659 177 679 211 653 265 M 574 172 C 626 166 656 204 653 265"/>
+    <path d="M 653 265 C 640 296 604 312 568 337"/>
+    <path d="M 568 364 C 565 390 569 415 570 439"/>
+  </g>
+  <g id="route-layer" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g class="flow-path oxygen" id="edge-0"><path d="M 570 439 C 645 413 674 385 700 305"/></g>
+    <g class="flow-path oxygen" id="edge-1"><path d="M 700 305 C 806 353 824 455 771 550"/></g>
+    <g class="flow-path oxygen" id="edge-2"><path d="M 771 550 C 734 606 673 632 603 657"/></g>
+    <g class="flow-path gradient-tissue" id="edge-3"><path d="M 586 657 C 480 695 380 647 343 553"/></g>
+    <g class="flow-path deoxygen" id="edge-4"><path d="M 343 553 C 265 474 273 417 279 358"/></g>
+    <g class="flow-path deoxygen" id="edge-5"><path d="M 279 358 C 342 313 387 300 430 332"/></g>
+    <g class="flow-path deoxygen" id="edge-6"><path d="M 444 364 C 440 393 442 410 444 428"/></g>
+    <g class="flow-path deoxygen" id="edge-7"><path d="M 444 437 C 362 409 315 330 329 264"/></g>
+    <g class="flow-path deoxygen" id="edge-8"><path d="M 329 264 C 309 228 340 189 382 190 M 329 264 C 320 212 375 158 426 172"/></g>
+    <g class="flow-path gradient-lung" id="edge-9"><path d="M 398 181 C 450 148 486 164 500 181 C 533 164 550 159 602 181"/></g>
+    <g class="flow-path oxygen" id="edge-10"><path d="M 602 181 C 659 177 679 211 653 265 M 574 172 C 626 166 656 204 653 265"/></g>
+    <g class="flow-path oxygen" id="edge-11"><path d="M 653 265 C 640 296 604 312 568 337"/></g>
+    <g class="flow-path oxygen" id="edge-12"><path d="M 568 364 C 565 390 569 415 570 439"/></g>
+  </g>
+  <g id="pulmonary-detail" opacity=".8" stroke-width="3.4" stroke-linecap="round" fill="none">
+    <g stroke="#83b0d7"><path d="M335 223 L315 202 L294 216 M339 218 L353 193 L370 202 M341 240 L300 252 M339 239 L365 260"/><path d="M660 224 L681 201 L702 216 M657 218 L643 192 L625 203 M657 240 L700 252 M661 241 L635 262"/></g>
+    <g stroke="#e8a0ab"><path d="M381 188 L381 221 L359 240 M398 180 L418 216 L433 224 M610 186 L612 221 L635 241 M597 182 L575 212 L557 221"/></g>
+    <g fill="#8fbccf" stroke="none"><circle cx="305" cy="216" r="5"/><circle cx="362" cy="202" r="5"/><circle cx="695" cy="216" r="5"/><circle cx="641" cy="202" r="5"/></g>
+  </g>
+  <g id="organ-detail" opacity=".8"><g fill="none" stroke-width="4" stroke-linecap="round"><path d="M 610 656 L 638 633 M 624 657 L 658 670 M 588 672 L 610 686" stroke="#e8a0ab"/><path d="M 373 657 L 407 639 M 399 670 L 427 687 M 420 656 L 437 654" stroke="#78aad7"/></g><g fill="#bfa7d6"><circle cx="466" cy="651" r="5"/><circle cx="480" cy="669" r="5"/><circle cx="511" cy="642" r="5"/><circle cx="533" cy="670" r="5"/><circle cx="551" cy="651" r="5"/></g></g>
+  <g id="heart" filter="url(#shadow)" stroke="#fafbfc" stroke-width="5">
+    <path d="M 422 294 C 406 286 394 314 396 339 C 398 371 419 374 448 369 L 477 359 L 476 314 C 454 296 440 298 422 294Z" fill="#b6daf3"/>
+    <path d="M 413 370 C 384 397 413 462 450 479 C 474 464 484 428 476 367Z" fill="#7db7e5"/>
+    <path d="M 530 312 C 550 296 577 299 594 315 C 613 336 598 365 562 373 L 520 365Z" fill="#f9bec5"/>
+    <path d="M 521 371 C 522 407 527 478 567 482 C 610 455 625 397 596 371Z" fill="#ee7684"/>
+    <path d="M 476 310 L 522 311 L 521 469 L 477 465" fill="#fef3f2" stroke="#efd7dc" stroke-width="3"/>
+  </g>
+  <g id="background-labels" fill="#607488" font-family="system-ui, sans-serif" font-weight="700" font-size="20" text-anchor="middle">
+    <text x="500" y="55">肺部</text>
+    <text x="500" y="575">全身組織</text>
+    <text x="505" y="520" font-size="16" font-weight="500" fill="#96a5b2">心臟（示意放大）</text>
+  </g>
+  <g id="node-layer" font-family="system-ui, sans-serif">
+    <g id="node-0" class="map-node" data-node="0" transform="translate(566 445)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">左心室</text></g>
+    <g id="node-1" class="map-node" data-node="1" transform="translate(703 307)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">大動脈</text></g>
+    <g id="node-2" class="map-node" data-node="2" transform="translate(771 554)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">各器官動脈</text></g>
+    <g id="node-3" class="map-node" data-node="3" transform="translate(580 656)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">組織微血管</text></g>
+    <g id="node-4" class="map-node" data-node="4" transform="translate(342 555)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">各器官靜脈</text></g>
+    <g id="node-5" class="map-node" data-node="5" transform="translate(279 357)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">大靜脈</text></g>
+    <g id="node-6" class="map-node" data-node="6" transform="translate(438 331)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">右心房</text></g>
+    <g id="node-7" class="map-node" data-node="7" transform="translate(443 439)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">右心室</text></g>
+    <g id="node-8" class="map-node" data-node="8" transform="translate(329 266)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">肺動脈</text></g>
+    <g id="node-9" class="map-node" data-node="9" transform="translate(500 183)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">肺部微血管</text></g>
+    <g id="node-10" class="map-node" data-node="10" transform="translate(655 263)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">肺靜脈</text></g>
+    <g id="node-11" class="map-node" data-node="11" transform="translate(567 334)"><circle class="node-halo" r="34"/><circle class="node-dot" r="13"/><text class="candidate-letter" y="8" text-anchor="middle"></text><text class="node-name" y="52" text-anchor="middle">左心房</text></g>
+  </g>
+</svg>
