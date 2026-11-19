@@ -1,0 +1,454 @@
+:root{color-scheme:light;--ink:#173743;--muted:#63808d;--teal:#176f7a;--bg:#edf3f4;--line:#cddde0;--shadow:0 5px 21px rgba(23,55,67,.075)}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,.stage:focus-visible{outline:3px solid #ffbf69;outline-offset:2px}.app{margin:auto;max-width:1600px;padding:12px clamp(10px,2.1vw,26px) 9px;min-height:100dvh;display:flex;flex-direction:column;gap:9px}.app-header{display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}.brand-icon{font-size:31px;line-height:1;background:#d6e9e9;border:1px solid #b7d4d3;color:#257987;width:49px;height:49px;border-radius:15px;display:grid;place-items:center;box-shadow:var(--shadow)}h1{font-size:24px;letter-spacing:1px;line-height:1.1;margin:0;font-weight:800}.brand p{font-size:12px;letter-spacing:.45px;color:var(--muted);margin:5px 0 0}.tabs{padding:5px;border:1px solid #d3e1e2;border-radius:15px;display:flex;gap:4px;background:#fff;box-shadow:var(--shadow)}.tab{border:0;background:transparent;padding:11px 17px;border-radius:11px;color:#53707a;font-size:14px;font-weight:750;white-space:nowrap}.tab:hover{background:#eaf4f4}.tab.active{background:#126976;color:white;box-shadow:0 3px 8px #13677530}.toolbar{display:flex;align-items:center;gap:13px;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--line);border-radius:13px;background:#fff;box-shadow:var(--shadow)}.control{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:750;white-space:nowrap}.control input[type=number]{width:78px;border:1px solid #c6d8dc;padding:7px 8px;border-radius:8px;text-align:center;background:#f6fafa;color:var(--ink)}.control input[type=range]{accent-color:#157e89;width:125px;height:18px}.control strong{font-size:15px;min-width:27px;text-align:right;font-variant-numeric:tabular-nums}.control small{font-size:12px;font-weight:500;color:var(--muted)}.heart-shell-control select{border:1px solid #bcd4d7;background:#f6fafa;border-radius:8px;padding:7px 8px;font-size:13px;color:#345763;font-weight:800;max-width:100px}.tool-buttons{display:flex;flex-wrap:wrap;gap:7px;flex:1}.tool{white-space:nowrap;border:1px solid #cbdde0;border-radius:9px;background:#f5f9f9;color:#47636e;padding:7px 10px;font-size:12px;font-weight:700}.tool:hover{border-color:#91bcbf}.tool.enabled{background:#def0ef;color:#08606d;border-color:#9ccecf}.info-line{min-height:30px;display:flex;gap:12px;align-items:center;color:#516d79;font-size:12px;padding:0 3px}.clear-btn{background:transparent;border:0;padding:2px 8px;text-decoration:underline;text-underline-offset:3px;color:#176977;font-size:12px}.clear-btn:hover{color:#0a404e}.track-indicator{padding:5px 9px;background:#fff3df;border:1px solid #f1ce8f;color:#91630c;border-radius:8px;font-weight:800}.micro-legend{align-items:center;gap:7px}.micro-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle}.o2dot{background:#2abfd7}.co2dot{background:#e9b34d}.sugardot{background:#5bc78a}.hidden{display:none!important}.stage{position:relative;flex:1;min-height:360px;overflow:hidden;border-radius:17px;border:1px solid #c5d9dd;background:radial-gradient(ellipse at 50% 42%,#fff 35%,#f0f8fa 100%);box-shadow:0 8px 24px rgba(30,60,78,.08);touch-action:none;user-select:none;cursor:grab}.stage.dragging{cursor:grabbing}.world{position:absolute;width:1100px;height:820px;left:0;top:0;transform-origin:0 0;will-change:transform}.world svg,.world canvas{display:block;position:absolute;left:0;top:0;width:1100px;height:820px;pointer-events:none}.stage-chips{position:absolute;top:13px;left:13px;display:flex;gap:9px;align-items:center;pointer-events:none}.stage-chips>span{background:#ffffffdf;border:1px solid #c9e0e1;padding:7px 11px;border-radius:9px;color:#406875;font-size:12px;font-weight:800;box-shadow:0 2px 8px #0b364b0b}.state-swatch{display:flex;align-items:center;gap:6px;font-weight:600!important;color:#64808a!important}.state-swatch i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ef676b}.state-swatch i:nth-of-type(2){background:#95444b}.zoom-stack{position:absolute;bottom:15px;right:15px;display:flex;flex-direction:column;gap:6px}.zoom-stack button{border:1px solid #bed5d9;border-radius:10px;background:#ffffffec;color:#285966;min-width:39px;height:39px;font-weight:800;font-size:20px;box-shadow:0 2px 7px #1e526414}.zoom-stack button:hover{background:#e9f7f7}.zoom-stack button#zoomReset{font-size:11px;min-width:45px}.stage-help{position:absolute;bottom:15px;left:15px;background:#ffffffc9;border:1px solid #d2e3e3;border-radius:8px;padding:6px 10px;font-size:11px;color:#67818a;pointer-events:none}.footer{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#6c8991;font-size:11px;padding:0 3px}.vessel-shadow{fill:none;stroke:#b2c5ce;stroke-width:36;stroke-linecap:round;stroke-linejoin:round;opacity:.16}.vessel-path{fill:none;stroke-linecap:round;stroke-linejoin:round}.branch-capillary{fill:none;stroke-width:2.7;stroke-linecap:round;opacity:.43}.organ-card{filter:url(#softShadow)}.world-label text{font-family:inherit;paint-order:stroke;stroke:#fff;stroke-width:2px;stroke-linejoin:round}.heart-valve{transition:opacity .15s}.hide-when-small{display:inline}@media(max-width:1030px){.app{gap:7px}.app-header{flex-wrap:wrap}.brand h1{font-size:21px}.tab{padding:9px 12px}.toolbar{padding:7px;gap:7px}.tool{padding:6px 7px}.brand p{display:none}.stage{min-height:370px}}@media(max-width:640px){.app{padding:7px;gap:6px}.app-header{flex-direction:column;align-items:stretch;gap:7px}.brand-icon{width:37px;height:37px;font-size:23px}.brand h1{font-size:19px}.tabs{align-self:stretch}.tab{flex:1;padding:7px 4px;font-size:12px}.toolbar{gap:7px}.control{font-size:11px}.control input[type=range]{width:90px}.tool-buttons{width:100%;flex-basis:100%}.tool{font-size:11px;flex:1}.stage{min-height:380px}.state-swatch,.stage-help{display:none!important}.info-line{font-size:11px}.footer{font-size:10px}}
+@media(max-height:720px) and (min-width:700px){.app{padding-top:6px;padding-bottom:5px;gap:5px}.brand-icon{height:40px;width:40px}.brand h1{font-size:20px}.toolbar{padding:5px}.stage{min-height:290px}}
+
+#diagram{z-index:1}#particles{z-index:2}#labelOverlay{z-index:3}
+.stage-help{display:none!important}.info-line.mini{min-height:24px}.stage.transitioning{cursor:default}.fly-snapshot{position:absolute;inset:0;z-index:8;pointer-events:none;overflow:hidden;opacity:1}.fly-snapshot .world{position:absolute}.world{backface-visibility:hidden}.flight-curtain{position:absolute;inset:0;z-index:7;pointer-events:none;background:radial-gradient(circle,transparent 46%,#dcecee44);opacity:0}.stage.transitioning .zoom-stack{opacity:.45;pointer-events:none}
+.micro-legend b{display:inline-block;font-size:13px;letter-spacing:.25px;padding:3px 7px;border-radius:6px;background:#f1f7f8}.micro-legend .molecule-legend-o2{color:#1589ad}.micro-legend .molecule-legend-co2{color:#b37722}.micro-legend .molecule-legend-glucose{color:#25885b}
+/* v0.1 — Two learning views, ONE shared SVG/network/heart in a single DOM. */
+.app{height:100dvh;max-height:100dvh;overflow:hidden}
+.app-header{min-height:50px;gap:9px}
+.brand-icon{width:42px;height:42px;font-size:25px}
+.brand h1{font-size:21px}
+.brand p{display:none}
+.main-tabs{display:flex;gap:5px;background:#e1ebed;padding:4px;border-radius:13px;margin-left:auto}
+.main-tab{border:0;background:transparent;padding:9px 16px;color:#496876;border-radius:10px;white-space:nowrap;font-weight:800;font-size:15px}
+.main-tab.selected{background:#fff;box-shadow:0 2px 9px #41708124;color:#165e70}
+.observe-tabs{gap:3px}
+.observe-tabs .tab{padding:7px 10px;font-size:12px}
+.toolbar{padding:6px 10px;gap:7px;flex-shrink:0}
+.control{font-size:12px}.control input[type=number]{width:67px}
+.control input[type=range]{width:110px}.tool{padding:6px 8px}
+.content-row{display:flex;flex:1;min-height:0;gap:9px}
+.content-row>.stage{width:100%;min-width:0;min-height:0}
+.route-panel{display:none;min-width:265px;width:clamp(270px,27vw,350px);background:#fff;border:1px solid #cddfe4;border-radius:17px;padding:15px 12px;box-shadow:var(--shadow);flex-direction:column;gap:9px;overflow:auto}
+.app.challenge-active .route-panel{display:flex}
+.app.challenge-active .content-row>.stage{flex:1;width:auto}
+.app.challenge-active .observe-only{display:none!important}
+.app:not(.challenge-active) .route-only{display:none!important}
+.app.challenge-active .stage{cursor:default}
+.route-toolbar{display:flex;gap:7px;align-items:center;background:white;border:1px solid #ccdce0;padding:7px 10px;border-radius:12px}
+.route-mode{border:0;border-radius:9px;background:#eaf1f3;color:#487483;font-size:13px;font-weight:800;padding:9px 11px;white-space:nowrap}
+.route-mode.selected{background:#1d7481;color:white}
+.route-mode:focus-visible,.main-tab:focus-visible,.answer:focus-visible{outline:3px solid #ffcb68;outline-offset:2px}
+.route-toolbar .toolbar-spacer{flex:1}
+.route-control{background:#fff;border:1px solid #c8dde0;color:#396c7c;border-radius:8px;padding:8px 11px;font-weight:750;white-space:nowrap}
+.route-head{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.route-head strong{font-size:17px}
+.route-counter{font-size:13px;font-weight:750;color:#7b929d}
+#routeChart{width:100%;height:auto;max-height:280px;display:block;overflow:visible}
+.route-chart-legend{display:flex;justify-content:space-around;font-size:12px;font-weight:750;color:#79909b}
+.route-chart-legend i{display:inline-block;width:11px;height:11px;border-radius:100%;margin-right:5px;vertical-align:middle}
+.route-note{font-size:12px;color:#547786;text-align:center;min-height:21px}
+.route-message{font-size:16px;font-weight:850;color:#356477;min-height:45px;background:#eff7f8;border-radius:12px;padding:11px;display:flex;align-items:center;justify-content:center;text-align:center}
+.route-answers{display:flex;gap:8px;justify-content:space-around;flex-wrap:wrap}
+.answer{border:1px solid #bfd6dd;background:#f6fafb;color:#2e7383;min-width:68px;min-height:54px;border-radius:14px;font-weight:900;font-size:25px;cursor:pointer}
+.answer:hover{background:#e3f3f4}.answer.wrong{border-color:#e59c89;background:#fff1ec}
+.route-task{border:1px solid #dbe8e8;border-radius:10px;padding:7px 8px;color:#637e88;display:flex;justify-content:center;gap:8px;align-items:center;min-height:32px;font-size:13px;font-weight:750;text-align:center}
+.route-task b{color:#387889}
+#routeOverlay{display:none;pointer-events:none}
+.app.challenge-active #routeOverlay{display:block;pointer-events:none}
+.route-hit{stroke:transparent;fill:none;stroke-width:31;stroke-linecap:round;stroke-linejoin:round;pointer-events:stroke;cursor:pointer}
+.route-cap-hit{stroke-width:16}
+.route-hit:focus-visible{stroke:#ffd56e;stroke-opacity:.32;outline:none}
+.route-selected{fill:none;stroke-width:17;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;opacity:.80}
+.route-selected.cap{stroke-width:5;opacity:.65}
+.route-hint{fill:none;stroke:#f6ba44;stroke-width:24;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;opacity:.73;filter:drop-shadow(0 0 6px #f0ca76)}
+.route-marker{fill:#ffc85d;stroke:white;stroke-width:3;filter:drop-shadow(0 0 5px #edb44a);pointer-events:none}
+.stage .stage-chips{z-index:4}
+.app.challenge-active .stage-chips .state-swatch{display:none}
+.route-done-progress{display:flex;gap:3px;min-height:6px;margin-bottom:4px}
+.route-done-progress span{height:6px;flex:1;border-radius:7px;background:#dbe7eb}
+.route-done-progress span.done{background:#57a6a5}.route-done-progress span.now{background:#f0b849}
+#routeNext{border:0;background:#1c7884;color:white;padding:11px;border-radius:12px;font-weight:850;font-size:14px}
+@media(max-width:1100px){.app{gap:6px;padding:8px}.app-header{flex-wrap:wrap}.route-panel{width:265px;min-width:265px;padding:9px}.main-tabs{margin-left:auto}.observe-tabs{order:3;margin-left:auto}.route-toolbar{flex-wrap:wrap}.route-mode{padding:7px 8px}.route-head strong{font-size:15px}}
+@media(max-height:720px){.app{padding:5px;gap:4px}.route-panel{padding:8px;gap:4px}.route-message{min-height:39px;padding:7px;font-size:14px}.route-answers .answer{min-height:43px}.route-mode{font-size:12px}.route-toolbar{padding:4px}.app-header{min-height:35px}.brand-icon{display:none}}
+
+.route-answers[hidden],#routeNext[hidden]{display:none!important}
+
+/* v0.2 – horizontal three-column teaching layout: controls | shared model | evidence. */
+.app{max-width:none;width:100%;height:100dvh;min-height:0;max-height:100dvh;overflow:hidden;padding:10px 12px;gap:10px}
+.app-header{min-height:48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;padding:1px 5px}
+.edition-label{font-size:12px;letter-spacing:1px;color:#829fa7;font-weight:700}
+.layout-shell{display:grid;grid-template-columns:clamp(174px,17vw,234px) minmax(0,1fr);gap:11px;flex:1;min-height:0}
+.control-sidebar{min-height:0;overflow-y:auto;overflow-x:hidden;border:1px solid #d5e4e7;background:#ffffffed;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow)}
+.sidebar-label{font-size:12px;font-weight:850;letter-spacing:.7px;color:#7e99a4;display:block;margin:2px 0 3px}
+.main-tabs,.observe-tabs,.route-toolbar,.toolbar,.tool-buttons{display:flex;flex-direction:column;align-items:stretch;gap:8px;flex-wrap:nowrap;width:100%;margin:0}
+.main-tabs{padding:4px;background:#eaf2f3;border-radius:13px;flex-shrink:0}
+.main-tab{width:100%;font-size:15px;padding:12px 10px;text-align:left;white-space:normal;line-height:1.3}
+.main-tab.selected{color:#146b78}
+.observe-tabs{border:0;box-shadow:none;padding:0;background:transparent;gap:7px}
+.observe-tabs .tab,.route-mode{width:100%;text-align:left;font-size:14px;padding:11px 12px;white-space:normal;border-radius:10px;border:1px solid #e2eced;line-height:1.2}
+.observe-tabs .tab.active,.route-mode.selected{background:#177786;color:#fff;border-color:#177786}
+.route-toolbar,.toolbar{box-shadow:none;border:0;border-top:1px solid #edf2f3;border-radius:0;padding:12px 0 0;gap:8px;background:transparent}
+.route-toolbar .toolbar-spacer{display:none}
+.sidebar-tools{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.route-control{min-width:0;padding:10px 4px;font-size:12px;text-align:center}
+.sidebar-tip{font-size:12px;line-height:1.5;color:#819aa4;margin:8px 2px 0}
+.control{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:12px;white-space:normal;flex-wrap:wrap}
+.control input[type=range]{width:100%;margin-top:7px;accent-color:#17838a}
+.control small{margin-left:3px}.control strong{color:#176c7a}
+.control select,.control input[type=number]{max-width:108px;border:1px solid #c5dadf;border-radius:8px;background:#f5fbfc;color:#275362;padding:7px 4px;font-size:12px}
+.tool-buttons{gap:6px;margin-top:6px}.tool{font-size:12px;padding:10px 8px;text-align:left;white-space:normal}
+.info-line.mini{min-height:0}.micro-legend{flex-wrap:wrap}
+.content-row{min-width:0;min-height:0;display:flex;gap:10px}
+.content-row>.stage{min-width:0;min-height:0;width:100%;height:100%;flex:1}
+.route-panel{min-width:240px;width:clamp(240px,24vw,330px);height:100%;padding:16px 14px;gap:9px;overflow-y:auto}
+.app.challenge-active .route-panel{display:flex}
+.app.challenge-active .content-row>.stage{min-width:0;flex:1}
+.app.challenge-active .observe-only{display:none!important}
+.app:not(.challenge-active) .route-only{display:none!important}
+#routeOverlay{display:none;pointer-events:none}
+.app.challenge-active #routeOverlay{display:block;pointer-events:none}
+.route-hit,.route-hit:focus,.route-hit:focus-visible{outline:none!important;-webkit-tap-highlight-color:transparent}
+.route-hit:focus-visible{stroke:transparent!important;stroke-opacity:0!important}
+.route-marker{transform-box:fill-box;transform-origin:center;animation:routePulse 1.1s ease-in-out infinite;filter:drop-shadow(0 0 9px #e6ad45)}
+@keyframes routePulse{0%,100%{stroke-width:2;opacity:1;scale:.9}50%{stroke-width:7;opacity:.65;scale:1.38}}
+.route-selected{opacity:.86}.route-hint{stroke:#f2bd55}
+.route-intro{position:absolute;inset:0;z-index:10;background:#f0f7f754;display:flex;align-items:flex-start;justify-content:center;padding-top:clamp(34px,12vh,105px);pointer-events:none}
+.route-intro[hidden]{display:none!important}
+.intro-card{pointer-events:auto;width:min(425px,87%);padding:23px 22px;border:1px solid #c5dfe3;border-radius:20px;background:#fffffff8;box-shadow:0 15px 50px #21546a30;text-align:center;display:flex;flex-direction:column;align-items:center;gap:11px}
+.intro-symbol{color:#e8ae4f;background:#fff2d9;border-radius:999px;width:38px;height:38px;font-size:27px}
+.intro-card strong{font-size:20px;line-height:1.45;color:#20576c}
+.intro-card p{font-size:13px;color:#7d98a2;line-height:1.4;margin:0}
+.intro-card button{border:0;background:#197a88;color:white;border-radius:12px;padding:11px 29px;font-size:15px;font-weight:850;cursor:pointer}
+.route-chart-legend span:last-child i{background:#784544!important}
+#routeAnswers{display:none!important}
+.route-message{font-size:15px;min-height:43px}.route-task{font-size:13px;line-height:1.45}
+.stage .stage-chips{z-index:4}
+@media (max-width:1100px){.app{padding:7px;gap:6px}.layout-shell{grid-template-columns:174px minmax(0,1fr);gap:6px}.control-sidebar{padding:8px;gap:10px}.content-row{gap:6px}.route-panel{width:224px;min-width:224px;padding:11px}.route-head strong{font-size:14px}}
+@media (max-height:720px) and (orientation:landscape){.app-header{min-height:35px}.layout-shell{gap:6px}.control-sidebar{gap:6px}.main-tab{padding:8px}.observe-tabs .tab,.route-mode{padding:8px}.route-panel{gap:4px}}
+
+/* v0.2 QA: zoom controls belong in left sidebar, like all mode selectors. */
+.sidebar-zoom{border-top:1px solid #e8f0f2;padding-top:9px;margin-top:auto}
+.control-sidebar .zoom-stack{position:static;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;bottom:auto;right:auto}
+.control-sidebar .zoom-stack button{min-width:0;width:100%;height:38px;padding:0;font-size:18px;box-shadow:none}
+.control-sidebar .zoom-stack button#zoomReset{min-width:0;font-size:10px}
+
+
+/* v1.1 – livelier palette + particles occluded by front vessels */
+:root{--ink:#214a5a;--muted:#6f8c98;--teal:#1a96a6;--bg:#f7fbff;--line:#d4e7ec;--shadow:0 8px 24px rgba(34,88,110,.10)}
+html,body{background:linear-gradient(180deg,#f7fbff 0%,#eef8fb 100%)}
+.brand-icon{background:linear-gradient(135deg,#fff5cf,#dff8fb);border-color:#cfe4e9;color:#f09a33}
+.main-tabs{background:#e6f5f6}
+.main-tab.selected,.observe-tabs .tab.active,.route-mode.selected,.tab.active{background:linear-gradient(135deg,#1aa0ad,#29b4a5)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 7px 18px rgba(39,160,165,.24)}
+.control-sidebar{background:linear-gradient(180deg,#ffffff 0%,#f7fcff 100%);border-color:#d8e8ed}
+.route-panel{background:linear-gradient(180deg,#ffffff 0%,#fbfeff 100%)}
+.route-message{background:linear-gradient(180deg,#eefcff,#ebfaf4)}
+.route-control,.tool{background:#f8fcfd;border-color:#cfe3e8}
+.tool.enabled{background:#e4f8f3;color:#0f6f78;border-color:#9fd5cf}
+.stage{background:radial-gradient(ellipse at 50% 38%,#ffffff 25%,#f1fbfd 78%,#eaf7fb 100%)}
+.stage-chips>span{background:#ffffffea;border-color:#d2e6ea}
+.state-swatch i{background:#ef676b}.state-swatch i:nth-of-type(2){background:#a57670}
+.route-chart-legend span:last-child i{background:#a57670!important}
+#diagram{z-index:1}#particles{z-index:2}#labelOverlay{z-index:3}
+
+
+/* v1.1 – same vessel tint, particles above vessels */
+.state-swatch i{background:#ef676b}.state-swatch i:nth-of-type(2){background:#95444b}
+
+/* v1.4: original abdominal capillary mesh remains visible while zooming. */
+#interstitialCells{opacity:0;transition:opacity 650ms ease;pointer-events:none}
+#interstitialCells.visible{opacity:.96}
+#interstitialCells .tissue-detail-label{opacity:.8}
+
+
+/* v1.5 – tissue zoom should feel like the same abdominal mesh, only enlarged. */
+#diagram .abd-mesh-seg{transition:filter .45s ease,opacity .45s ease}
+#diagram.tissue-zoomed .abd-mesh-seg{filter:blur(.42px)}
+#interstitialCells{opacity:0;transition:opacity 650ms ease;pointer-events:none}
+#interstitialCells.visible{opacity:.985}
+#interstitialCells .tissue-base{opacity:.98}
+#interstitialCells .tissue-cell,#interstitialCells .tissue-cell-small,#interstitialCells .tissue-cell-tiny{mix-blend-mode:normal}
+
+
+/* v1.6:夢幻粉紫 – only presentation changes, preserving RBC / oxygen semantics. */
+:root{
+ --ink:#463657;
+ --muted:#776786;
+ --teal:#a56bcf;
+ --bg:#fbf6ff;
+ --line:#e8dcef;
+ --shadow:0 8px 28px rgba(123,76,157,.12);
+ --pink:#e971b0;
+ --pink-soft:#ffe7f2;
+ --lavender:#aa82de;
+ --violet:#7656bc;
+ --periwinkle:#ced6ff;
+ --butter:#ffdab0;
+}
+html,body{
+ color:var(--ink);
+ background:
+  radial-gradient(circle at 8% 7%,rgba(255,207,228,.46),transparent 35%),
+  radial-gradient(circle at 91% 84%,rgba(211,192,254,.48),transparent 37%),
+  linear-gradient(135deg,#fff8fc 0%,#f7f1ff 57%,#f4f6ff 100%);
+}
+.app-header{background:transparent}
+.brand-icon{
+ background:linear-gradient(140deg,#ffe1ef,#efdfff 70%,#dbe5ff);
+ color:#9562c7;border-color:#e8d4f3;
+ box-shadow:0 4px 16px rgba(176,120,216,.14);
+}
+.brand h1,.brand p{color:#614776}
+.edition-label{color:#a182b4}
+.control-sidebar{
+ background:linear-gradient(166deg,rgba(255,253,255,.98),rgba(255,243,251,.96) 55%,rgba(249,244,255,.98));
+ border:1px solid #ebd9ed;box-shadow:0 9px 26px rgba(152,102,173,.1);
+}
+.sidebar-label{color:#8f70a6}
+.main-tabs{background:linear-gradient(125deg,#f7e7fb,#ffebf4);border:1px solid #ebd8f0;padding:5px}
+.main-tab{color:#715683;transition:background .16s,box-shadow .16s,transform .16s;border:1px solid transparent}
+.main-tab:not(.selected):hover{background:#fff9ff;box-shadow:0 3px 12px rgba(155,95,168,.10)}
+.main-tab.selected#toObserve,
+.main-tab.selected#toObserve:hover{
+ color:#fff!important;
+ border-color:transparent!important;
+ background:linear-gradient(112deg,#a27adb,#b78ae5 55%,#d59eea)!important;
+ box-shadow:0 6px 16px rgba(144,95,194,.25)!important;
+}
+.main-tab.selected#toRoute,
+.main-tab.selected#toRoute:hover{
+ color:#fff!important;
+ border-color:transparent!important;
+ background:linear-gradient(112deg,#dc6bab,#e57aaf 55%,#ba81dd)!important;
+ box-shadow:0 6px 16px rgba(209,97,158,.25)!important;
+}
+.tab-seq{display:inline-grid;place-items:center;width:22px;height:22px;margin-right:3px;border-radius:50%;background:#fff8;font-size:14px;font-weight:900}
+.main-tab:not(.selected) .tab-seq{background:#fffd;color:#9a69be}
+.observe-tabs .tab,.route-mode{
+ background:linear-gradient(135deg,#fffafd,#f9f5ff);
+ border:1px solid #eadfee;color:#785c8a;
+ box-shadow:0 1px 2px #b586ac0a;
+}
+.observe-tabs .tab:hover,.route-mode:hover{border-color:#d5b4e9;background:#f7e9fa}
+.observe-tabs .tab.active{
+ color:white!important;border-color:transparent!important;
+ background:linear-gradient(118deg,#9266ce,#bd91e9)!important;
+ box-shadow:0 5px 15px rgba(156,99,197,.19)!important;
+}
+.route-mode.selected{
+ color:#714376!important;border:1px solid #e5a1cb!important;
+ background:linear-gradient(116deg,#ffe0f0,#efdcff)!important;
+ box-shadow:inset 3px 0 #df7bae,0 3px 9px rgba(223,124,171,.1)!important;
+}
+.route-toolbar,.toolbar,.sidebar-zoom{border-color:#eddfef}
+.control{color:#63506f}
+.control strong{color:#875bb8}
+.control input[type=range]{accent-color:#c774ba}
+.control select,.control input[type=number],.heart-shell-control select{
+ border:1px solid #e2cce7;background:#fff9ff;color:#644d77;
+}
+.tool,.route-control,.zoom-stack button,.control-sidebar .zoom-stack button{
+ background:linear-gradient(140deg,#fffafe,#f7f1ff);border-color:#e5d3ef;color:#74588e;
+}
+.tool:hover,.route-control:hover,.control-sidebar .zoom-stack button:hover{background:#fce9f6;border-color:#dba7d8}
+.tool.enabled{
+ color:#7b498d;background:linear-gradient(115deg,#f5dfff,#ffe5f0);border-color:#dcb7e7;
+}
+#routeDemo{
+ color:#5d4078;background:linear-gradient(115deg,#fff0d8,#ffe2c6);
+ border:1px solid #f3cda7;
+}
+#routeReset{background:linear-gradient(115deg,#eee6ff,#e0d8fa);border-color:#d2bfee}
+.stage{
+ border:1px solid #e6d5ee;
+ background:radial-gradient(ellipse at 52% 38%,#fffefd 18%,#fff7fc 62%,#f6efff 100%);
+ box-shadow:0 12px 26px rgba(142,93,160,.1);
+}
+.stage-chips>span{
+ background:#fffdffed;border-color:#eadbed;color:#785c84;
+ box-shadow:0 2px 12px rgba(164,122,182,.09);
+}
+.route-panel{
+ background:linear-gradient(160deg,#fffdfd,#fff7fc 44%,#f9f4ff 100%);
+ border:1px solid #eaddf1;box-shadow:var(--shadow);
+}
+.route-head strong{color:#664c82}
+.route-chart-legend{color:#786883}
+.route-chart-legend span:last-child i{background:#95444b!important}
+.route-task,.route-note{color:#694f7a}
+.route-task b{color:#b0639c}
+.route-message{
+ color:#674c82;background:linear-gradient(120deg,#f7e9fb,#ffeaf6);
+ border-color:#efd8ed;
+}
+.route-done-progress span{background:#e7ddeb}
+.route-done-progress span.done{background:#bc8cdb}
+.route-done-progress span.now{background:#ffc385}
+.route-hint{stroke:#ffcd79;filter:drop-shadow(0 0 6px #ffcf90)}
+.route-marker{fill:#ffc977;filter:drop-shadow(0 0 7px #e9bb77)}
+#routeNext,.intro-card button{
+ color:#fff;background:linear-gradient(118deg,#bf6dae,#9266cf);border:0;
+ box-shadow:0 5px 14px rgba(156,90,172,.18);
+}
+.route-intro{background:#fcf5ff67}
+.intro-card{
+ border:1px solid #e6cce8;background:linear-gradient(145deg,#fffdfd,#fff4fd);
+ box-shadow:0 17px 45px #915dbb37;
+}
+.intro-card strong{color:#694b80}
+.intro-card p,.sidebar-tip,.route-note{color:#967da3}
+.intro-symbol{background:#ffebd2;color:#bb7b39}
+.state-swatch i{background:#ef676b}
+.state-swatch i:nth-of-type(2){background:#95444b}
+/* No changes to RBC/oxygen colors, vessel geometry, particles, or SVG masks. */
+
+
+/* v1.7 – middle scenario card + up to three compact material charts */
+.scenario-card{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:min(72%,490px);z-index:5;
+ background:linear-gradient(115deg,#fffcfff1,#f7effff1);border:1px solid #e9cde9;
+ padding:9px 14px 10px;border-radius:14px;box-shadow:0 6px 24px #9f73b51c;
+ pointer-events:none;color:#684a83;text-align:center}
+.scenario-top{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:2px}
+.scenario-kicker{font-size:10px;font-weight:800;letter-spacing:.3px;color:#b36a9e}
+.scenario-loc{font-size:10px;color:#8564aa;font-weight:800}
+.scenario-card strong{display:block;font-size:14px;line-height:1.35}
+.scenario-card p{font-size:11px;line-height:1.35;margin:4px 0 0;color:#806d91}
+.app:not(.challenge-active) .scenario-card{display:none}
+.app.challenge-active .stage-chips{top:auto;bottom:12px;left:13px}
+.route-intro{padding-top:clamp(110px,25vh,180px)}
+.matter-picker{background:#fff9ff;border:1px solid #ead9f1;border-radius:12px;padding:9px 8px;flex-shrink:0}
+.matter-help{display:flex;justify-content:space-between;align-items:center;gap:4px;margin-bottom:8px;font-size:12px;font-weight:800;color:#73558b}
+.matter-help b{font-size:11px;color:#b274aa}
+.matter-options{display:flex;flex-wrap:wrap;gap:5px}
+.matter-choice{border:1px solid #e4cfea;border-radius:8px;background:#fff;color:#816d8b;font-size:11px;font-weight:800;
+ padding:7px 8px;cursor:pointer;min-height:33px}
+.matter-choice.picked{background:#f5e4fc;border-color:#b87bd5;color:#7d419d;box-shadow:inset 0 0 0 1px #d3a3ed}
+.matter-choice:disabled{opacity:.42;cursor:not-allowed}
+.route-graphs{display:flex;flex-direction:column;gap:9px;min-height:0;flex:0 0 auto}
+.graph-card{background:#fffdff;border:1px solid #eadbec;border-radius:12px;padding:7px 8px 5px}
+.graph-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:1px}
+.graph-heading strong{font-size:12px;color:#684a82;display:flex;align-items:center;gap:6px}
+.graph-heading i{height:9px;width:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+.graph-heading span{font-size:10px;color:#a08ba8}
+.graph-svg{display:block;width:100%;height:auto;max-height:114px}
+.graph-footer{font-size:10px;color:#906e99;text-align:center;min-height:11px}
+.relative-note{color:#9a86a6;font-size:10px;line-height:1.45}
+.route-panel{gap:8px;overflow-y:auto;scrollbar-width:thin}
+.route-task{display:none}
+#routeMessage{font-size:12px;min-height:34px;padding:8px}
+.route-note{font-size:11px}
+.route-pin-label{font-family:system-ui,sans-serif;font-weight:900;font-size:14px;paint-order:stroke;stroke:#fff;stroke-width:2.2px}
+.route-end-ring{fill:#f3e7ff;stroke:#9b5dc1;stroke-width:4;stroke-dasharray:5 3;filter:drop-shadow(0 0 8px #aa78d8);animation:goalPulse 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center;pointer-events:none}
+@keyframes goalPulse{0%,100%{opacity:.96;scale:.97}50%{opacity:.56;scale:1.19}}
+.organ-guide{pointer-events:none}
+.organ-guide .organ-pill{fill:#fff5ff;stroke:#d9b8e5;stroke-width:1.5;opacity:.95}
+.organ-guide text{font-size:12px;font-weight:850;fill:#8a5a96;paint-order:stroke;stroke:#fff;stroke-width:2}
+.organ-guide .organ-line{fill:none;stroke:#c7a0d7;stroke-width:1.25;stroke-dasharray:3 3}
+@media(max-width:1100px){.scenario-card{width:min(83%,390px);padding:8px 10px}.scenario-card strong{font-size:12px}.scenario-card p{font-size:10px}.matter-choice{font-size:10px;padding:6px}.graph-svg{max-height:101px}.route-panel{gap:6px}}
+@media(max-height:710px){.scenario-card p{display:none}.scenario-card{top:7px}.graph-svg{max-height:92px}.graph-card{padding:5px}.route-panel{gap:5px}}
+
+/* Center-column scenario, docked to the left to keep the HEAD destination visible. */
+.scenario-card{left:13px;transform:none;width:min(40%,315px);top:13px;text-align:left;padding:10px 12px}
+.scenario-top{justify-content:flex-start;flex-wrap:wrap;gap:4px 9px}
+.scenario-card strong{font-size:15px}
+.scenario-card p{font-size:11.5px}
+@media(max-width:1100px){.scenario-card{left:9px;top:9px;width:min(43%,245px);padding:8px}.scenario-card strong{font-size:12px}}
+@media(max-height:710px){.scenario-card p{display:block;font-size:10px}}
+
+
+/* v1.8R – full-width classroom mission; no duplicate status controls in sidebar. */
+.app.challenge-active .scenario-card{left:12px;right:12px;top:10px;width:auto;transform:none;min-height:82px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 16px;
+  background:linear-gradient(110deg,#fff8feF4,#f6edffF4);border:1px solid #e3c8ed;
+  border-radius:17px;box-shadow:0 5px 18px #a77bb421;text-align:left;pointer-events:auto}
+.scenario-copy{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.scenario-card strong{font-size:16px;line-height:1.25;color:#704785}
+.scenario-card p{font-size:13px;line-height:1.34;margin:0;color:#836393}
+.scenario-card .scenario-loc{display:block;font-size:12px;color:#a45397;font-weight:850;line-height:1.3}
+.scenario-actions{min-width:122px;max-width:38%;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.scenario-feedback{font-size:12px;color:#7d61a0;text-align:right;line-height:1.3;font-weight:700}
+#scenarioNext{background:linear-gradient(105deg,#ef76ac,#a47adc);color:#fff;font-size:13px;font-weight:850;
+  padding:9px 14px;border:0;border-radius:12px;min-height:38px;box-shadow:0 4px 10px #a56bbb35;cursor:pointer}
+#scenarioNext:hover{filter:brightness(1.05)}
+#scenarioNext[hidden]{display:none!important}
+.route-internal{display:none!important}
+/* Main anatomy labels on the shared diagram remain visible in all modes. */
+.organ-silhouette,.kidney-organ,.stomach-organ{pointer-events:none}
+.liver-shape{fill:#e9a0b5;stroke:#b86a8a;stroke-width:2.3;fill-opacity:.91}
+.liver-lobe{fill:none;stroke:#bd728f;stroke-width:1.6;stroke-opacity:.6}
+.organ-sheen{fill:none;stroke:#fff4f7;stroke-width:4;stroke-linecap:round;stroke-opacity:.5}
+.organ-title,.kidney-title{font-family:system-ui,'Noto Sans TC',sans-serif;fill:#854265;stroke:#fff5fa;stroke-width:2.1;paint-order:stroke;stroke-linejoin:round;font-size:13px;font-weight:900}
+.kidney-shape{fill:#d0b5ec;stroke:#9870c8;stroke-width:2.4;fill-opacity:.92}
+.kidney-hilum{fill:none;stroke:#9e73c3;stroke-width:1.6;stroke-linecap:round}
+.kidney-title{fill:#674e9b;font-size:10px}
+.stomach-shape{fill:#f6c9ab;stroke:#d6a37c;stroke-width:2}
+.focus .liver-shape,.focus .kidney-shape{filter:drop-shadow(0 0 5px #f4c45ea8);stroke-width:3}
+.portal-label{font-size:11px;fill:#8f5c8a;stroke:#fff;stroke-width:2;paint-order:stroke;font-weight:750}
+/* Keep the top task readable on 1024px iPad landscape, not a tall instruction panel. */
+@media(max-width:1150px){.app.challenge-active .scenario-card{top:8px;left:7px;right:7px;min-height:77px;padding:7px 10px;gap:8px}
+ .scenario-card strong{font-size:13px}.scenario-card p{font-size:11px}.scenario-card .scenario-loc{font-size:11px}
+ .scenario-actions{min-width:95px}#scenarioNext{font-size:11px;padding:7px 8px}}
+@media(max-height:710px){.app.challenge-active .scenario-card{min-height:62px;padding:6px 10px}
+ .scenario-card p{display:block;max-height:32px;overflow:hidden}.scenario-feedback{font-size:10px}}
+
+.scenario-feedback:empty{display:none}
+
+/* v1.8R: organ placement annotations on the ORIGINAL v1.7 vascular model. */
+#sharedOrganOverlay{pointer-events:none}
+.organ-liver-fill{fill:#e9a8c3;fill-opacity:.30;stroke:#ba739b;stroke-width:2.4;stroke-linejoin:round}
+.organ-liver-seam{fill:none;stroke:#bd7a9b;stroke-width:1.4;stroke-opacity:.75}
+.organ-division-label{font-family:system-ui,'Noto Sans TC',sans-serif;font-size:16px;font-weight:850;fill:#8a517d;paint-order:stroke;stroke:#fff9fc;stroke-width:3px;stroke-linejoin:round}
+.organ-intestine-outline{fill:#f8e7f1;fill-opacity:.045;stroke:#dc91bb;stroke-width:2.2;stroke-dasharray:8 5}
+.organ-kidney-outline{fill:#ecdcff;fill-opacity:.045;stroke:#ae8cdb;stroke-width:2.2;stroke-dasharray:8 5}
+.intestine-label{fill:#9f5c91}.kidney-label{fill:#8863b9}.foot-label{fill:#9d6595}
+
+
+/* v1.9: completed blood paths are oxygen-state colored, without recoloring base vessels. */
+.route-selected[data-oxygen-state="blue"]{opacity:.93}
+.route-selected[data-oxygen-state="red"]{opacity:.92}
+.route-selected[data-oxygen-state="tissue"],.route-selected[data-oxygen-state="lung"]{opacity:.90}
+
+
+/* v2.0 route three-stage practice: 圖示 → 圖文 → 純文字 */
+.route-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:7px 0 10px}
+.route-level{border:1px solid #e6d0ec;border-radius:10px;background:#fffbff;color:#775785;font-size:12px;font-weight:800;padding:9px 3px;cursor:pointer;min-height:42px}
+.route-level.selected{background:linear-gradient(105deg,#ffdfef,#e8d5ff);border-color:#c694e7;color:#79499f;box-shadow:inset 0 0 0 1px #d8b6f1}
+.route-level:focus-visible,.word-answer:focus-visible{outline:3px solid #c68de6;outline-offset:2px}
+.app.challenge-active.route-icon-only #anatomyLabels{opacity:0}
+.app.challenge-active.route-paired #anatomyLabels{opacity:1}
+.app.challenge-active.route-words #world{opacity:0;pointer-events:none}
+.app.challenge-active.route-words #labelOverlay{opacity:0}
+.app.challenge-active.route-words .zoom-stack{display:none}
+.route-word-board{display:none;position:absolute;top:106px;left:5%;width:90%;bottom:14px;z-index:4;
+ border-radius:17px;padding:16px 15px;overflow-y:auto;border:1px solid #edd7ef;
+ background:linear-gradient(140deg,#fffaffed,#f8effff2);box-shadow:0 8px 22px #a677bd1c}
+.route-word-board[hidden]{display:none!important}
+.app.challenge-active.route-words .route-word-board{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+.word-board-heading{font-size:18px;font-weight:850;color:#774a92;text-align:center}
+.route-word-trail{display:flex;flex-wrap:wrap;align-content:flex-start;align-items:center;justify-content:center;gap:6px;max-height:45%;overflow-y:auto}
+.word-path-start,.word-path-chip,.word-path-end{padding:7px 9px;border:1px solid #e6cee8;border-radius:9px;background:#fffaff;color:#7a568d;font-size:12px;font-weight:750;line-height:1.35}
+.word-path-start,.word-path-end{background:#f5e5fb;color:#a250a1;font-size:15px}
+.route-word-options{display:grid;grid-template-columns:1fr;gap:9px;max-width:440px;width:100%;margin:0 auto;padding:7px 0}
+.word-answer{min-height:46px;border:1px solid #decaeb;background:#fff;border-radius:12px;padding:10px 15px;color:#67447e;font-size:15px;font-weight:750;cursor:pointer;box-shadow:0 4px 12px #ab8bd71c}
+.word-answer:hover{border-color:#cc9cd8;background:#fff3fc}
+.word-answer:active{background:#eddcfb;transform:scale(.99)}
+.word-finished{text-align:center;background:#f6eafc;border-radius:13px;color:#9d6db0;padding:15px;font-size:15px;font-weight:750}
+@media(max-width:1100px){.route-level{font-size:10px;min-height:38px}.route-word-board{top:98px;padding:10px 12px}.word-answer{min-height:42px;font-size:13px}.word-board-heading{font-size:16px}}
+@media(max-height:690px){.route-word-board{top:80px;bottom:7px}.route-word-trail{max-height:40%}.word-answer{min-height:38px;padding:8px 10px}}
+
+
+/* v2.1 – progression first, then a separate route selection group. */
+.route-toolbar{gap:0!important}
+.route-level-group{display:flex;flex-direction:column;gap:4px;padding:0 0 16px;margin:0 0 14px;
+  border-bottom:1px solid #ecd8f4;min-width:0}
+.route-mode-group{display:flex;flex-direction:column;gap:8px;min-width:0}
+.route-levels{margin:2px 0 0;gap:6px}
+.route-level{min-width:0;white-space:normal;line-height:1.25}
+.route-toolbar .sidebar-tools{margin-top:14px}
+
+/* Never clip the scenario description on small landscape screens. */
+.app.challenge-active .scenario-card{height:auto;min-height:82px;align-items:flex-start}
+.scenario-copy{min-width:0;overflow:visible;max-width:100%}
+.scenario-copy strong,.scenario-copy p,.scenario-card .scenario-loc{
+  white-space:normal!important;overflow-wrap:anywhere;word-break:normal;overflow:visible!important;
+  max-height:none!important;text-overflow:clip!important;}
+.scenario-card .scenario-loc{display:flex;flex-wrap:wrap;align-items:center;gap:3px 7px;margin-top:2px}
+.endpoint-chip{display:inline-block;white-space:normal;max-width:100%;line-height:1.45}
+.endpoint-arrow{font-weight:900;flex-shrink:0}
+.scenario-actions{flex-shrink:0}
+@media(max-width:1150px){.app.challenge-active .scenario-card{min-height:86px}}
+@media(max-height:710px){.app.challenge-active .scenario-card p{display:block;max-height:none!important;overflow:visible!important}}
+
+/* Different substances have labeled relative classroom scales (not real units). */
+.graph-footer{overflow-wrap:anywhere;line-height:1.3;min-height:18px}

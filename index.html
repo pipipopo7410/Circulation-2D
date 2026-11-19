@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#b27bdb">
+  <meta name="description" content="互動式血液循環模型：觀察體循環、肺循環及微血管氣體交換">
+  <title>血液循環 2D｜路徑挑戰 × 血流觀察 v2.3</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand"><span class="brand-icon" aria-hidden="true">◉</span><div><h1>血液循環</h1><p>從心臟到微血管，看見血液的旅程</p></div></div>
+      <span class="edition-label">血流探索 · v2.3</span>
+    </header>
+    <div class="layout-shell">
+      <aside class="control-sidebar" aria-label="操作選項">
+        <nav class="main-tabs" aria-label="學習分頁">
+          <button type="button" class="main-tab selected" id="toObserve" aria-pressed="true"><span class="tab-seq">①</span> 血流觀察</button>
+          <button type="button" class="main-tab" id="toRoute" aria-pressed="false"><span class="tab-seq">②</span> 路徑挑戰</button>
+        </nav>
+        <section class="route-toolbar route-only" aria-label="路徑練習選擇">
+          <div class="route-level-group" aria-label="練習階段">
+            <span class="sidebar-label">練習階段</span>
+            <div class="route-levels" role="group" aria-label="路徑練習階段">
+              <button class="route-level selected" type="button" data-level="paired" aria-pressed="true" title="圖像搭配構造名稱">① 圖文</button>
+              <button class="route-level" type="button" data-level="visual" aria-pressed="false" title="觀察圖像，點選血管">② 圖示</button>
+              <button class="route-level" type="button" data-level="words" aria-pressed="false" title="只看文字選擇血流順序">③ 文字</button>
+            </div>
+          </div>
+          <div class="route-mode-group" aria-label="選擇路徑">
+            <span class="sidebar-label">選擇路徑</span>
+            <button class="route-mode selected" data-mode="upper" type="button">頭部 · 上半身</button>
+            <button class="route-mode" data-mode="lower" type="button">腳底 · 下半身</button>
+            <button class="route-mode" data-mode="challenge" type="button">◎ A → B 挑戰</button>
+          </div>
+          <div class="sidebar-tools">
+            <button class="route-control" id="routeDemo" aria-label="路徑示範">▶ 示範</button>
+            <button class="route-control" id="routeReset" aria-label="重新開始">↻ 重來</button>
+          </div>
+        </section>
+        <nav class="tabs observe-tabs observe-only" aria-label="血流觀察視角">
+          <span class="sidebar-label">觀察視角</span>
+          <button type="button" class="tab active" data-view="circulation" aria-pressed="true">全體血液循環</button>
+          <button type="button" class="tab" data-view="tissue" aria-pressed="false">組織微血管</button>
+          <button type="button" class="tab" data-view="alveolus" aria-pressed="false">肺泡</button>
+        </nav>
+        <section class="toolbar observe-only" aria-label="血流動畫控制">
+          <label class="control count-control" id="countControl"><span>血球數量</span><input type="number" id="cellCount" min="0" max="1600" step="1" value="800" inputmode="numeric"></label>
+          <label class="control heart-control"><span>心搏速率　<strong id="heartRateValue">60</strong><small>bpm</small></span><input id="heartRate" type="range" min="40" max="180" value="60" step="1"></label>
+          <label class="control heart-shell-control" id="heartShellControl"><span>心臟輪廓</span><select id="heartOpacity" aria-label="心臟外型顯示"><option value="clear">隱藏輪廓</option><option value="half" selected>淡顯輪廓</option></select></label>
+          <div class="tool-buttons">
+            <button type="button" class="tool enabled" id="labelsBtn" aria-pressed="true">構造標籤：開</button>
+            <button type="button" class="tool" id="trackBtn" aria-pressed="false">追蹤血球：關</button>
+          </div>
+        </section>
+        <div class="info-line mini observe-only"><span class="micro-legend hidden" id="microLegend"><b class="molecule-legend-o2">O₂</b><b class="molecule-legend-co2">CO₂</b><b class="molecule-legend-glucose" id="sugarDot">葡萄糖</b><span class="hidden" id="sugarLegend">葡萄糖</span></span></div>
+      </aside>
+    <div class="content-row">
+    <main class="stage" id="stage" tabindex="0" aria-label="血液循環動畫，可以拖曳或捲動縮放">
+      <section class="scenario-card" id="routeScenario" aria-live="polite">
+        <div class="scenario-copy">
+          <strong id="scenarioTitle">血液循環情境</strong>
+          <p id="scenarioDetail">依照情境找出血流路徑。</p>
+          <span id="scenarioLoc" class="scenario-loc">A → B</span>
+        </div>
+        <div class="scenario-actions">
+          <span id="routeMessage" class="scenario-feedback" aria-live="polite"></span>
+          <button type="button" id="scenarioNext" hidden>下一個生活情境 ↻</button>
+        </div>
+      </section>
+      <div class="world" id="world">
+        <svg id="diagram" viewBox="0 0 1100 820" width="1100" height="820" aria-hidden="true">
+          <defs>
+            <linearGradient id="sysGrad" x1="1" y1="0" x2="0" y2="0" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#ed7274"/><stop offset="0.48" stop-color="#bca0bd"/><stop offset="1" stop-color="#729bc6"/></linearGradient>
+            <linearGradient id="lungGrad" x1="0" y1="1" x2="0" y2="0" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#729bc6"/><stop offset="0.50" stop-color="#c6adc0"/><stop offset="1" stop-color="#ed7274"/></linearGradient>
+            <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#8ba2b5" flood-opacity="0.24"/></filter>
+          </defs>
+          <g id="worldBackdrop"></g>
+          <g id="vesselShadows"></g>
+          <g id="vesselLumen"></g>
+          <g id="microBranches"></g>
+          <g id="heartShape"></g>
+          <!-- One drawing, two teaching modes: route touch/feedback overlays share exactly the same SVG/network. -->
+          <g id="routeOverlay" aria-label="點選下一段血管"></g>
+        </svg>
+        <canvas id="particles" width="1100" height="820" aria-hidden="true"></canvas>
+        <svg id="labelOverlay" viewBox="0 0 1100 820" width="1100" height="820" aria-hidden="true"><g id="anatomyLabels"></g></svg>
+      </div>
+      <section id="routeWordBoard" class="route-word-board" aria-label="純文字血液路徑練習" hidden>
+        <div class="word-board-heading">接下來流向哪裡？</div>
+        <div id="routeWordTrail" class="route-word-trail" aria-label="已走過的路徑"></div>
+        <div id="routeWordOptions" class="route-word-options" role="group" aria-label="選擇下一個構造"></div>
+      </section>
+      <div class="route-intro" id="routeIntro" hidden role="dialog" aria-label="路徑任務">
+        <div class="intro-card">
+          <div class="intro-symbol">⌁</div>
+          <strong id="introQuestion">血液要流到頭部，該怎麼走？</strong>
+          <p>從閃爍的起點開始，沿著正確的血管前進。</p>
+          <button id="routeIntroStart" type="button">開始挑戰　→</button>
+        </div>
+      </div>
+      <div class="stage-chips"><span class="state-swatch"><i></i> 含氧較多 <i></i> 含氧較少</span></div>
+      <div class="zoom-stack" aria-label="縮放工具"><button id="zoomIn" type="button" title="放大">＋</button><button id="zoomOut" type="button" title="縮小">－</button><button id="zoomReset" type="button" title="重設100%">100%</button><button id="zoomFit" type="button" title="適應畫面">⛶</button></div>
+    </main>
+    <aside class="route-panel" aria-label="物質含量變化比較">
+      <div class="route-head"><strong>物質含量變化</strong><span class="route-counter" id="routeCount">0 / 11</span></div>
+      <div class="matter-picker" id="matterPicker" aria-label="選擇比較物質，最多三項">
+        <span class="matter-help">選擇比較物質 <b id="matterCount">2 / 3</b></span>
+        <div class="matter-options">
+          <button type="button" class="matter-choice picked" data-matter="o2" aria-pressed="true">氧氣</button>
+          <button type="button" class="matter-choice picked" data-matter="co2" aria-pressed="true">二氧化碳</button>
+          <button type="button" class="matter-choice" data-matter="glucose" aria-pressed="false">葡萄糖</button>
+          <button type="button" class="matter-choice" data-matter="ammonia" aria-pressed="false">氨</button>
+          <button type="button" class="matter-choice" data-matter="urea" aria-pressed="false">尿素</button>
+        </div>
+      </div>
+      <div id="routeGraphs" class="route-graphs" aria-live="polite"></div>
+      <div class="route-internal" aria-hidden="true" hidden>
+        <div id="routeProgress"></div><div id="routeTask"></div>
+        <div id="routeAnswers" hidden></div><div id="routeNote"></div>
+      </div>
+    </aside>
+    </div>
+    </div><!-- layout-shell -->
+  </div>
+  <script src="./app.js" defer></script>
+  <script src="./route.js" defer></script>
+</body>
+</html>
