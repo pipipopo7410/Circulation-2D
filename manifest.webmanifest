@@ -1,5 +1,5 @@
 {
-  "name": "血液循環 2D｜動態模擬",
+  "name": "血液循環 2D｜基礎與進階血流探索",
   "short_name": "血液循環 2D",
   "start_url": "./index.html",
   "display": "standalone",
@@ -16,5 +16,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "description": "基礎血流、單顆血球固定鏡頭路徑導覽與路徑挑戰；支援離線"
 }

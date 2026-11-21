@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#b27bdb">
   <meta name="description" content="互動式血液循環模型：觀察體循環、肺循環及微血管氣體交換">
-  <title>血液循環 2D｜路徑挑戰 × 血流觀察 v2.3</title>
+  <title>血液循環 2D｜血流觀察 × 真實血流走向 × 路徑挑戰</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="stylesheet" href="./style.css">
@@ -15,19 +15,43 @@
   <div class="app">
     <header class="app-header">
       <div class="brand"><span class="brand-icon" aria-hidden="true">◉</span><div><h1>血液循環</h1><p>從心臟到微血管，看見血液的旅程</p></div></div>
-      <span class="edition-label">血流探索 · v2.3</span>
+      <span class="edition-label">血流探索 · v2.8</span>
     </header>
     <div class="layout-shell">
       <aside class="control-sidebar" aria-label="操作選項">
         <nav class="main-tabs" aria-label="學習分頁">
-          <button type="button" class="main-tab selected" id="toObserve" aria-pressed="true"><span class="tab-seq">①</span> 血流觀察</button>
-          <button type="button" class="main-tab" id="toRoute" aria-pressed="false"><span class="tab-seq">②</span> 路徑挑戰</button>
+          <button type="button" class="main-tab selected" id="toObserve" aria-pressed="true"><span class="tab-seq">①</span><span class="main-tab-name">血流觀察</span></button>
+          <button type="button" class="main-tab advanced-nav" id="toAdvanced" aria-pressed="false" title="熟悉基礎血流後，觀察完整人體的擬真流向"><span class="adv-tab-top"><span class="tab-seq">✦</span><span class="adv-tab-name">隱藏版</span><span class="adv-tab-sub">（真實血流走向）</span></span></button>
+          <button type="button" class="main-tab" id="toRoute" aria-pressed="false"><span class="tab-seq">②</span><span class="main-tab-name">路徑挑戰</span></button>
         </nav>
+        <section class="advanced-only advanced-controls" aria-label="進階擬真血流操作">
+          <nav class="advanced-zones" aria-label="觀察視角">
+            <span class="sidebar-label">單顆血球路徑</span>
+            <div class="advanced-zone-grid">
+              <button type="button" class="adv-zone active" data-advanced-zone="head">頭部</button>
+              <button type="button" class="adv-zone" data-advanced-zone="heart">心肺</button>
+              <button type="button" class="adv-zone" data-advanced-zone="arm">右手</button>
+              <button type="button" class="adv-zone" data-advanced-zone="kidney">左腎</button>
+              <button type="button" class="adv-zone" data-advanced-zone="gut">小腸</button>
+              <button type="button" class="adv-zone" data-advanced-zone="leg">右腿</button>
+            </div>
+          </nav>
+          <div class="advanced-guide-side"><span id="advancedGuideSideText">從左心房出發，觀察一圈血流</span><button id="advancedFreeObserve" type="button" class="guide-replay" aria-pressed="false">⌖ 自由觀察</button></div>
+          <section class="advanced-toolbox" aria-label="血流動畫控制">
+            <label class="control adv-count count-slider"><span>血球數量 <strong id="advancedCountText" aria-live="off">1200</strong><small>顆</small></span><input id="advancedCount" type="range" min="0" max="1600" step="20" value="1200" aria-label="進階版血球數量"></label>
+            <label class="control adv-speed"><span>動畫速度 <strong id="advancedSpeedText">1.0</strong><small>×</small></span><input id="advancedSpeed" type="range" min="0.2" max="2" step="0.1" value="1"></label>
+            <div class="advanced-tool-buttons">
+              <button type="button" id="advancedPlay" class="tool enabled" aria-pressed="true">Ⅱ 暫停</button>
+              <button type="button" id="advancedFollow" class="tool" aria-pressed="false">追蹤血球：關</button>
+            </div>
+            <p class="advanced-hint">鏡頭固定｜路徑導覽獨立於一般血球</p>
+          </section>
+        </section>
         <section class="route-toolbar route-only" aria-label="路徑練習選擇">
           <div class="route-level-group" aria-label="練習階段">
             <span class="sidebar-label">練習階段</span>
             <div class="route-levels" role="group" aria-label="路徑練習階段">
-              <button class="route-level selected" type="button" data-level="paired" aria-pressed="true" title="圖像搭配構造名稱">① 圖文</button>
+              <button class="route-level selected" type="button" data-level="paired" aria-pressed="true" title="同時提供圖像與構造文字">① 圖＋文</button>
               <button class="route-level" type="button" data-level="visual" aria-pressed="false" title="觀察圖像，點選血管">② 圖示</button>
               <button class="route-level" type="button" data-level="words" aria-pressed="false" title="只看文字選擇血流順序">③ 文字</button>
             </div>
@@ -36,7 +60,7 @@
             <span class="sidebar-label">選擇路徑</span>
             <button class="route-mode selected" data-mode="upper" type="button">頭部 · 上半身</button>
             <button class="route-mode" data-mode="lower" type="button">腳底 · 下半身</button>
-            <button class="route-mode" data-mode="challenge" type="button">◎ A → B 挑戰</button>
+            <button class="route-mode" data-mode="challenge" type="button">◎ 情境挑戰</button>
           </div>
           <div class="sidebar-tools">
             <button class="route-control" id="routeDemo" aria-label="路徑示範">▶ 示範</button>
@@ -50,7 +74,7 @@
           <button type="button" class="tab" data-view="alveolus" aria-pressed="false">肺泡</button>
         </nav>
         <section class="toolbar observe-only" aria-label="血流動畫控制">
-          <label class="control count-control" id="countControl"><span>血球數量</span><input type="number" id="cellCount" min="0" max="1600" step="1" value="800" inputmode="numeric"></label>
+          <label class="control count-control count-slider" id="countControl"><span>血球數量 <strong id="cellCountText" aria-live="off">800</strong><small>顆</small></span><input type="range" id="cellCount" min="0" max="1600" step="20" value="800" aria-label="基礎版血球數量"></label>
           <label class="control heart-control"><span>心搏速率　<strong id="heartRateValue">60</strong><small>bpm</small></span><input id="heartRate" type="range" min="40" max="180" value="60" step="1"></label>
           <label class="control heart-shell-control" id="heartShellControl"><span>心臟輪廓</span><select id="heartOpacity" aria-label="心臟外型顯示"><option value="clear">隱藏輪廓</option><option value="half" selected>淡顯輪廓</option></select></label>
           <div class="tool-buttons">
@@ -66,7 +90,7 @@
         <div class="scenario-copy">
           <strong id="scenarioTitle">血液循環情境</strong>
           <p id="scenarioDetail">依照情境找出血流路徑。</p>
-          <span id="scenarioLoc" class="scenario-loc">A → B</span>
+          <span id="scenarioLoc" class="scenario-loc">起點 → 終點</span>
         </div>
         <div class="scenario-actions">
           <span id="routeMessage" class="scenario-feedback" aria-live="polite"></span>
@@ -104,6 +128,9 @@
           <button id="routeIntroStart" type="button">開始挑戰　→</button>
         </div>
       </div>
+      <iframe id="advancedFrame" class="advanced-frame" title="進階真實血流走向模擬" tabindex="0" loading="lazy" allow="fullscreen" aria-label="271 條血管路線與血球動畫" hidden></iframe>
+      <div id="advancedLoading" class="advanced-loading" hidden>正在準備進階血流畫面…</div>
+      <div id="advancedGuideStatus" class="advanced-guide-status" aria-live="polite"><strong id="advancedGuideName">頭部血流</strong><span id="advancedGuidePhase">從左心房出發</span><div class="advanced-guide-progress"><i id="advancedGuideProgress"></i></div></div>
       <div class="stage-chips"><span class="state-swatch"><i></i> 含氧較多 <i></i> 含氧較少</span></div>
       <div class="zoom-stack" aria-label="縮放工具"><button id="zoomIn" type="button" title="放大">＋</button><button id="zoomOut" type="button" title="縮小">－</button><button id="zoomReset" type="button" title="重設100%">100%</button><button id="zoomFit" type="button" title="適應畫面">⛶</button></div>
     </main>
@@ -130,6 +157,7 @@
   </div>
   <script src="./app.js" defer></script>
   <script src="./route.js" defer></script>
-<script src="./home-button.js"></script>
+  <script src="./advanced.js" defer></script>
+  <script src="./home-button.js"></script>
 </body>
 </html>

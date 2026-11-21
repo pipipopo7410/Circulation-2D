@@ -21,7 +21,7 @@ const BEDS={upper_c:'head-bed',abd_c:'abd-bed',leg_c:'leg-bed',pul_r_c:'left-lun
 // 由早期「圖片點選、圖片＋文字、文字連結」三種練法恢復而來。
 // 三階段使用完全相同的血流拓撲，僅改變學生作答時看見的資訊。
 const LEVELS=['paired','visual','words'];
-const LEVEL_NAMES={visual:'圖示',paired:'圖文',words:'純文字'};
+const LEVEL_NAMES={visual:'圖示',paired:'圖＋文',words:'文字'};
 const ROUTE_WORDS={
  la_lv:'左心房 → 左心室',lv_out:'左心室 → 主動脈',
  upper_a:'主動脈 → 上半身動脈',upper_c:'上半身微血管',upper_v:'上大靜脈 → 右心房',
@@ -140,13 +140,18 @@ function startPoint(id){const p=routeTrack(id)[0];return p?.el.getPointAtLength(
 function endPoint(id){const t=routeTrack(id),p=t[t.length-1];return p?.el.getPointAtLength(p.length)||{x:550,y:350};}
 function paintFlag(group,p,label,color){
  group.replaceChildren();
- svg('circle',{cx:p.x,cy:p.y,r:16,fill:'#fffaff',stroke:color,'stroke-width':3,opacity:'.96',...(label==='B'?{class:'route-end-ring'}:{})},group);
- const text=svg('text',{x:p.x,y:p.y+4.8,'text-anchor':'middle',fill:color,class:'route-pin-label'},group);text.textContent=label;
+ // The small dot marks the EXACT path endpoint. The readable label floats above it,
+ // so the Chinese characters do not hide the vessel junction or intercept clicks.
+ svg('circle',{cx:p.x,cy:p.y,r:5.2,fill:color,stroke:'#fff','stroke-width':2.5},group);
+ svg('path',{d:`M ${p.x} ${p.y-6} L ${p.x} ${p.y-14}`,fill:'none',stroke:color,'stroke-width':1.5,'stroke-linecap':'round',opacity:'.9'},group);
+ const start=p.x-23,top=p.y-36;
+ svg('rect',{x:start,y:top,width:46,height:22,rx:10,fill:'#fffaff',stroke:color,'stroke-width':2,opacity:'.97',...(label==='終點'?{class:'route-end-pill'}:{})},group);
+ const text=svg('text',{x:p.x,y:top+15.0,'text-anchor':'middle',fill:'#704785',class:'route-pin-label'},group);text.textContent=label;
 }
 function showMarkers(){
  if(!S.active||!S.steps.length){pulse.setAttribute('visibility','hidden');return;}
- paintFlag(startPin,startPoint(S.steps[0]),'A','#efb65b');
- paintFlag(endPin,endPoint(S.steps[S.steps.length-1]),'B','#945cc7');
+ paintFlag(startPin,startPoint(S.steps[0]),'起點','#efb65b');
+ paintFlag(endPin,endPoint(S.steps[S.steps.length-1]),'終點','#945cc7');
  const current=S.step>=S.steps.length?null:S.step>0?endPoint(S.steps[S.step-1]):startPoint(S.steps[0]);
  if(!current){pulse.setAttribute('visibility','hidden');return;}
  pulse.setAttribute('cx',current.x);pulse.setAttribute('cy',current.y);pulse.setAttribute('visibility',S.phase==='route'?'visible':'hidden');
@@ -163,9 +168,9 @@ function pendingMission(){
 function currentOrgan(){return S.mode==='challenge'?(S.mission?.organ||'none'):'none';}
 function renderEndpoints(from,to){
  sceneLoc.replaceChildren();
- const a=document.createElement('span');a.className='endpoint-chip';a.textContent=`A｜${from}`;
+ const a=document.createElement('span');a.className='endpoint-chip';a.textContent=from;
  const arrow=document.createElement('span');arrow.className='endpoint-arrow';arrow.textContent='→';arrow.setAttribute('aria-hidden','true');
- const b=document.createElement('span');b.className='endpoint-chip';b.textContent=`B｜${to}`;
+ const b=document.createElement('span');b.className='endpoint-chip';b.textContent=to;
  sceneLoc.append(a,arrow,b);
 }
 function setNarrative(){
@@ -239,10 +244,10 @@ function renderWordPractice(){
  if(!wordBoard||!S.active||S.level!=='words')return;
  const shown=S.steps.slice(0,S.step);
  wordTrail.replaceChildren();
- const lead=document.createElement('span');lead.className='word-path-start';lead.textContent='A';wordTrail.appendChild(lead);
+ const lead=document.createElement('span');lead.className='word-path-start';lead.textContent='起點';wordTrail.appendChild(lead);
  for(const id of shown){const chip=document.createElement('span');chip.className='word-path-chip';chip.textContent=ROUTE_WORDS[id]||id;wordTrail.appendChild(chip);}
  if(S.phase==='done'){
-  const end=document.createElement('span');end.className='word-path-end';end.textContent='✓ B';wordTrail.appendChild(end);
+  const end=document.createElement('span');end.className='word-path-end';end.textContent='✓ 終點';wordTrail.appendChild(end);
  }
  wordOptions.replaceChildren();
  if(S.phase==='done'){
@@ -385,7 +390,7 @@ function runSegment(id){
 function finishRoute(){
  S.demo=false;$('routeDemo').textContent='▶ 重播';
  S.phase='done';nextBtn.hidden=false;answers.hidden=true;pulse.setAttribute('visibility','hidden');
- status.textContent='✓ 抵達 B！看看右側圖表';
+ status.textContent='✓ 抵達終點！看看右側圖表';
  note.textContent='';
  if(S.mode==='challenge'&&S.wrong&&!S.missed.some(x=>x.id===S.mission.id))S.missed.push({id:S.mission.id,wait:3});
  S.nextLevel=null;
@@ -450,7 +455,7 @@ function init(){
  document.querySelectorAll('.matter-choice').forEach(b=>b.addEventListener('click',()=>pickMatter(b.dataset.matter)));
  $('routeReset').addEventListener('click',()=>setMode(S.mode));
  $('routeDemo').addEventListener('click',toggleDemo);
- $('routeIntroStart').addEventListener('click',()=>{if(!S.active||S.phase!=='intro')return;$('routeIntro').hidden=true;S.phase='route';showMarkers();renderWordPractice();status.textContent='從 A 開始，走向 B';});
+ $('routeIntroStart').addEventListener('click',()=>{if(!S.active||S.phase!=='intro')return;$('routeIntro').hidden=true;S.phase='route';showMarkers();renderWordPractice();status.textContent='從起點開始，走向終點';});
  nextBtn.addEventListener('click',()=>{const next=S.nextLevel;if(next)S.level=next;setMode(S.mode,S.mode==='challenge');});
  setMode('upper');
 }

@@ -452,3 +452,197 @@ html,body{
 
 /* Different substances have labeled relative classroom scales (not real units). */
 .graph-footer{overflow-wrap:anywhere;line-height:1.3;min-height:18px}
+
+/* v2.4 — advanced mode shares the original approved purple/pink classroom UI. */
+.advanced-only{display:none!important}
+.app.advanced-active .advanced-only{display:flex!important}
+.app.advanced-active .observe-only,.app.advanced-active .route-only{display:none!important}
+.app.advanced-active .route-panel{display:none!important}
+.app.advanced-active .scenario-card,.app.advanced-active #routeIntro,.app.advanced-active .route-word-board{display:none!important}
+.app.advanced-active #world,.app.advanced-active .stage-chips{visibility:hidden!important}
+.main-tab.advanced-nav{font-size:13px}
+.main-tab.advanced-nav small{display:block;font-size:10px;margin-left:28px;margin-top:3px;letter-spacing:.6px;opacity:.82}
+.main-tab.advanced-nav.selected{color:#fff!important;background:linear-gradient(108deg,#9c78d4,#cf89bc)!important;border-color:transparent!important;box-shadow:0 5px 15px #b581bc3a!important}
+.advanced-controls{flex-direction:column;align-items:stretch;gap:12px;min-width:0}
+.advanced-zones{display:flex;flex-direction:column;gap:5px}
+.advanced-zone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.adv-zone{min-height:41px;border-radius:10px;border:1px solid #eadfee;color:#775b88;background:linear-gradient(130deg,#fffbfd,#f9f4ff);font-weight:750;font-size:12px;padding:8px 4px;text-align:center}
+.adv-zone.active{background:linear-gradient(115deg,#9366d0,#bc8fe6);border-color:#b58bd7;color:#fff;box-shadow:0 3px 10px #9c79cb2a}
+.advanced-extra-zones{padding-top:4px;font-size:11px;color:#856d98}
+.advanced-extra-zones summary{cursor:pointer;font-weight:700;padding:6px 1px}
+.advanced-extra-zones .advanced-zone-grid{padding:6px 0}
+.advanced-toolbox{display:flex;flex-direction:column;align-items:stretch;gap:10px;border-top:1px solid #eddfef;padding-top:12px}
+.advanced-toolbox .control{margin:0;min-width:0;gap:5px}
+.advanced-toolbox .control select{max-width:110px}
+.advanced-toolbox .control input[type=range]{width:100%}
+.advanced-tool-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.advanced-tool-buttons .tool{padding:10px 5px;min-width:0;text-align:center;font-size:11px}
+.advanced-tool-buttons .tool:last-child{grid-column:span 2}
+.advanced-hint{margin:0;font-size:11px;color:#9884a5;line-height:1.6}
+.advanced-frame{position:absolute;inset:0;z-index:2;width:100%;height:100%;border:0;border-radius:inherit;background:#fffaff;display:none}
+.app.advanced-active .advanced-frame:not([hidden]){display:block}
+.advanced-loading{display:none;position:absolute;z-index:7;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff9ff;border:1px solid #e7d6ed;border-radius:12px;padding:16px 24px;box-shadow:var(--shadow);font-size:13px;color:#795a92}
+.app.advanced-active .advanced-loading:not([hidden]){display:block}
+.app.advanced-active .zoom-stack{z-index:9;pointer-events:auto}
+.app.advanced-active .stage{cursor:default}
+@media(max-width:1100px){.main-tab.advanced-nav{font-size:11.5px}.main-tab.advanced-nav small{font-size:9px}.advanced-zone-grid{gap:4px}.adv-zone{font-size:11px;padding:7px 2px;min-height:37px}.advanced-controls{gap:7px}.advanced-toolbox{gap:7px;padding-top:8px}.advanced-hint{font-size:10px}}
+
+/* v2.5: stable 2-line secret entry and NO scrollable teaching sidebars. */
+html,body,.app{height:100dvh;max-height:100dvh;overflow:hidden!important}
+.control-sidebar{overflow:hidden!important;overscroll-behavior:contain;gap:clamp(5px,1.1vh,10px);padding:clamp(6px,1.1vh,11px)}
+.main-tabs{gap:3px;padding:3px;flex:0 0 auto}
+.main-tab{padding:clamp(7px,1.05vh,10px) 8px;min-height:0;font-size:14px}
+.main-tab.advanced-nav{display:flex;flex-direction:column;align-items:flex-start;gap:3px;line-height:1.1;padding:7px 9px!important;white-space:nowrap}
+.adv-tab-top{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:900;line-height:1.3}
+.adv-tab-top .tab-seq{width:21px;height:21px;margin:0}
+.adv-tab-sub{display:inline-block;margin-left:26px;padding:3px 7px;border:1px solid #d6a9dc;border-radius:7px;background:#fff8;letter-spacing:.45px;font-size:10px;font-weight:850;line-height:1.2;white-space:nowrap}
+.main-tab.advanced-nav.selected .adv-tab-sub{background:#fff2;border-color:#ffffff80;color:#fff}
+.advanced-controls{gap:clamp(5px,1vh,8px)}
+.advanced-zones{gap:4px}
+.advanced-zone-grid{gap:5px}
+.adv-zone{min-height:34px;padding:7px 2px;white-space:nowrap;line-height:1.1}
+.advanced-guide-side{display:flex;flex-direction:column;gap:5px;min-width:0;align-items:stretch}
+#advancedGuideSideText{font-size:10px;color:#887197;line-height:1.4;text-align:center}
+.guide-replay{background:linear-gradient(120deg,#f6e7fb,#fff4fb);border:1px solid #dcbfe9;color:#8755a1;border-radius:9px;padding:7px 5px;font-size:12px;font-weight:800;cursor:pointer}
+.advanced-toolbox{padding-top:8px;gap:clamp(5px,.9vh,8px)}
+.advanced-toolbox .control{font-size:12px;gap:4px}
+.advanced-toolbox .control input[type=range]{margin-top:2px;height:14px}
+.advanced-tool-buttons{gap:5px}
+.advanced-tool-buttons .tool{padding:7px 3px;font-size:10.5px}
+.advanced-hint{font-size:9.5px;line-height:1.2}
+.advanced-guide-status{display:none;position:absolute;top:10px;left:10px;z-index:9;min-width:195px;max-width:min(300px,55%);padding:9px 12px;background:#fffafdF5;border:1px solid #ead2ed;border-radius:12px;box-shadow:0 4px 12px #724d8d16;pointer-events:none;flex-direction:column;gap:4px;color:#704b86}
+.app.advanced-active .advanced-guide-status{display:flex}
+.advanced-guide-status strong{font-size:13px}
+.advanced-guide-status span{font-size:11px;line-height:1.35}
+.advanced-guide-progress{width:100%;height:4px;background:#eadfec;border-radius:99px;overflow:hidden}
+.advanced-guide-progress i{display:block;width:0%;height:100%;background:linear-gradient(90deg,#b78adf,#e88eab);transition:width .16s}
+@media(max-width:1100px){.control-sidebar{gap:6px;padding:8px}.main-tab{padding:7px 6px;font-size:13px}.adv-zone{min-height:31px;padding:6px 1px;font-size:11px}.advanced-toolbox{gap:6px}.advanced-hint{display:none}}
+@media(max-height:710px){.app-header{min-height:30px}.control-sidebar{gap:4px;padding:6px}.advanced-controls{gap:4px}.adv-zone{min-height:28px;padding:4px 1px}.main-tab{padding:6px}.main-tab.advanced-nav{padding:5px 8px!important}.advanced-toolbox{gap:4px;padding-top:5px}.advanced-toolbox .control{font-size:11px}.advanced-tool-buttons .tool{padding:5px 2px}.advanced-guide-side{gap:3px}.guide-replay{padding:5px}.advanced-hint{display:none}}
+
+/* v2.6: one-line secret entry; compact two-button layout; all views remain viewport-locked. */
+.main-tab.advanced-nav{
+ display:flex!important;flex-direction:row!important;align-items:center!important;
+ justify-content:flex-start!important;min-width:0;padding:7px 5px!important;
+ white-space:nowrap!important;line-height:1.2!important;overflow:visible!important;
+}
+.adv-tab-top{display:flex!important;align-items:center!important;gap:3px!important;
+ flex-wrap:nowrap!important;white-space:nowrap!important;min-width:0!important;max-width:100%;}
+.adv-tab-top .tab-seq{width:18px!important;height:18px!important;min-width:18px!important;
+ font-size:11px!important;margin:0!important;flex-shrink:0!important;}
+.adv-tab-name{font-size:12px!important;font-weight:900!important;white-space:nowrap!important;flex-shrink:0!important;}
+.adv-tab-sub{display:inline-block!important;flex-shrink:0!important;margin:0!important;
+ padding:2px 2px!important;white-space:nowrap!important;letter-spacing:0!important;
+ border:1px solid #d6a9dc!important;border-radius:5px!important;
+ background:#fff8;font-size:8px!important;font-weight:800!important;line-height:1.15!important;}
+.main-tab.advanced-nav.selected .adv-tab-sub{background:#fff2!important;border-color:#ffffff80!important;color:#fff!important}
+.advanced-tool-buttons{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.advanced-tool-buttons .tool:last-child{grid-column:auto!important}
+@media(max-width:1100px){
+ .main-tab.advanced-nav{padding:6px 3px!important}
+ .adv-tab-name{font-size:11px!important}
+ .adv-tab-sub{font-size:7.6px!important;padding:2px 1px!important}
+ .adv-tab-top{gap:2px!important}
+}
+@media(max-height:710px){.main-tab.advanced-nav{padding:5px 3px!important}}
+
+/* v2.7: one-line, aligned secret entry without an inner frame. */
+.main-tab.advanced-nav{padding-left:8px!important;padding-right:3px!important;overflow:hidden!important}
+.adv-tab-top{gap:4px!important;min-width:0!important;width:100%;justify-content:flex-start}
+.adv-tab-top .tab-seq{width:22px!important;min-width:22px!important;height:22px!important;margin:0!important;font-size:13px!important}
+.adv-tab-name{font-size:12px!important;letter-spacing:-.2px!important}
+.adv-tab-sub,.main-tab.advanced-nav.selected .adv-tab-sub{
+ border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;padding:0!important;margin:0!important;
+ font-size:9px!important;font-weight:750!important;letter-spacing:-.15px!important;
+ color:inherit!important;white-space:nowrap!important;
+}
+/* Same stacked range slider design for both blood-cell controls. */
+.count-slider{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:1px!important}
+.count-slider>span{display:flex;align-items:baseline;justify-content:flex-start;gap:4px;width:100%;white-space:nowrap}
+.count-slider>span strong{margin-left:auto;min-width:0!important;font-size:15px!important;font-variant-numeric:tabular-nums}
+.count-slider>span small{margin:0!important}
+.count-slider input[type=range]{width:100%!important;max-width:none!important;height:20px!important;margin:2px 0 0!important;accent-color:#bf7cbd;cursor:pointer}
+.advanced-guide-side .guide-replay{font-size:12px;font-weight:850;min-height:32px;white-space:nowrap}
+.advanced-guide-side .guide-replay.enabled{background:linear-gradient(110deg,#f5dfff,#ffe9f5);border-color:#c88edb;color:#72428c}
+@media(max-width:1100px){
+ .main-tab.advanced-nav{padding-left:6px!important;padding-right:1px!important}
+ .adv-tab-top{gap:3px!important}
+ .adv-tab-name{font-size:11.5px!important}
+ .adv-tab-sub,.main-tab.advanced-nav.selected .adv-tab-sub{font-size:8.5px!important;letter-spacing:-.2px!important}
+ .advanced-toolbox{gap:5px}
+}
+@media(max-height:710px){
+ .main-tab.advanced-nav{padding-left:6px!important}
+ .advanced-guide-side .guide-replay{min-height:28px;padding:5px}
+ .count-slider input[type=range]{height:17px!important}
+}
+
+/* v2.8 final-stage polish: tabs share exactly the same text start and typography. */
+.main-tabs .main-tab{display:grid!important;grid-template-columns:22px minmax(0,1fr)!important;
+ column-gap:4px!important;align-items:center!important;justify-content:start!important;
+ text-align:left!important;white-space:nowrap!important;min-width:0!important;
+ padding-left:8px!important;padding-right:5px!important;font-size:14px!important;line-height:1.25!important}
+.main-tabs .main-tab .tab-seq,.main-tabs .main-tab.advanced-nav .tab-seq{
+ display:grid!important;place-items:center!important;grid-column:1!important;width:22px!important;min-width:22px!important;
+ height:22px!important;margin:0!important;font-size:13px!important;letter-spacing:0!important}
+.main-tab-name,.adv-tab-name{font-size:14px!important;font-weight:800!important;letter-spacing:0!important;white-space:nowrap!important}
+.main-tab.advanced-nav .adv-tab-top{display:flex!important;grid-column:1 / -1!important;
+ align-items:center!important;flex-wrap:nowrap!important;white-space:nowrap!important;min-width:0!important;
+ width:100%!important;gap:4px!important}
+.main-tab.advanced-nav .adv-tab-name{font-size:14px!important;font-weight:800!important;letter-spacing:0!important}
+.main-tab.advanced-nav .adv-tab-sub{font-size:9.2px!important;font-weight:740!important;
+ letter-spacing:-.26px!important;white-space:nowrap!important;flex-shrink:0!important}
+@media(max-width:1100px){
+ .main-tabs .main-tab{padding-left:6px!important;padding-right:2px!important;column-gap:3px!important;font-size:13px!important}
+ .main-tab-name,.main-tab.advanced-nav .adv-tab-name{font-size:13px!important}
+ .main-tab.advanced-nav .adv-tab-sub{font-size:8.4px!important;letter-spacing:-.35px!important}
+ .main-tab.advanced-nav .adv-tab-top{gap:3px!important}
+}
+/* A gentle visual division between "practice stage" and "choose a path". */
+.app.challenge-active .route-toolbar{gap:10px!important;padding-top:9px!important}
+.app.challenge-active .route-level-group{margin:0!important;padding:3px 3px 13px!important;
+ border-bottom:1.5px solid #e3c6ef!important;gap:7px!important}
+.app.challenge-active .route-levels{margin:0!important;gap:4px!important}
+.app.challenge-active .route-level{font-size:clamp(9px,1.1vw,12px)!important;
+ font-weight:850!important;padding:8px 1px!important;white-space:nowrap!important;min-height:39px!important}
+.app.challenge-active .route-mode-group{gap:8px!important;padding-top:4px!important}
+.app.challenge-active .route-mode-group>.sidebar-label{margin-bottom:2px!important}
+.app.challenge-active .route-toolbar .sidebar-tools{margin-top:6px!important}
+/* Mission reads as a question, not tiny supplementary metadata. */
+.app.challenge-active .scenario-card{padding:12px 15px!important;min-height:98px!important;
+ gap:15px!important;align-items:center!important}
+.app.challenge-active .scenario-copy{gap:4px!important;flex:1!important;min-width:0!important}
+.app.challenge-active .scenario-card strong{font-size:clamp(16px,1.5vw,19px)!important;line-height:1.38!important;
+ font-weight:900!important;letter-spacing:.1px!important}
+.app.challenge-active .scenario-card p{font-size:clamp(13px,1.2vw,15px)!important;line-height:1.48!important;
+ margin:0!important;max-height:none!important;display:block!important;overflow:visible!important}
+.app.challenge-active .scenario-card .scenario-loc{font-size:clamp(12px,1.05vw,14px)!important;
+ line-height:1.4!important;margin:3px 0 0!important;gap:6px!important}
+.app.challenge-active .endpoint-chip{font-weight:850!important;background:#fffaff;
+ border:1px solid #ead3f2;padding:3px 8px;border-radius:8px}
+.app.challenge-active .scenario-actions{min-width:0!important;max-width:30%!important}
+.route-pin-label{font-weight:900!important;font-size:12px!important;stroke:#fff9fc;stroke-width:1.2px!important}
+@media(max-width:1100px){
+ .app.challenge-active .scenario-card{padding:9px 11px!important;gap:9px!important;min-height:92px!important}
+ .app.challenge-active .scenario-card strong{font-size:17px!important}
+ .app.challenge-active .scenario-card p{font-size:13.5px!important}
+ .app.challenge-active .scenario-card .scenario-loc{font-size:12.5px!important}
+ .app.challenge-active .route-toolbar{gap:8px!important}
+}
+@media(max-height:710px){
+ .app.challenge-active .scenario-card{padding:7px 9px!important;min-height:83px!important}
+ .app.challenge-active .scenario-card strong{font-size:16px!important}
+ .app.challenge-active .scenario-card p{font-size:13px!important}
+ .app.challenge-active .route-level-group{padding-bottom:10px!important}
+ .app.challenge-active .route-toolbar{gap:6px!important}
+}
+/* Final reading-size refinement after 1024px landscape screenshot review. */
+@media (min-width:900px) and (max-width:1100px){
+ .app.challenge-active .scenario-card strong{font-size:19px!important}
+ .app.challenge-active .scenario-card p{font-size:14.7px!important}
+ .app.challenge-active .scenario-card .scenario-loc{font-size:13.3px!important}
+}
+@media (min-width:900px) and (max-height:710px){
+ .app.challenge-active .scenario-card strong{font-size:18px!important}
+ .app.challenge-active .scenario-card p{font-size:14px!important}
+}
